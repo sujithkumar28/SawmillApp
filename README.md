@@ -19,6 +19,8 @@ Download the source code and go to the project location where you find pom.xml a
 
 ``` mvn clean install ```
 
+This can take some time as the application will download the resouces and run unit and integration tests.
+
 #### Running the Application
 
 Once the build is success you can find the application jar in the target folder of the project location.
@@ -27,9 +29,13 @@ The default port of application is 8080 and the profile set is dev.
 
 Based on the preference you can change the port and profile
 
-Command to run with profiles and port: ``` java -jar SawmillApp-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev --server.port=9090 ```
+Command to run with profiles and port
 
-Command to run with default profile and port: ``` java -jar SawmillApp-0.0.1-SNAPSHOT.jar ```
+``` java -jar SawmillApp-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev --server.port=9090 ```
+
+Command to run with default profile and port
+
+``` java -jar SawmillApp-0.0.1-SNAPSHOT.jar ```
 
 Add the symbol & at the end of the command to run the application in the backgroup
 
@@ -40,13 +46,17 @@ Application perform the Crud operation and the values are stored in the in-memor
 
 Change the configuration as per your need in the properties file
 
-Create Sawmill     : /sawmill/createSawmill
-Read Specific ID   : /sawmill/getSawmill/id
-List all entries   : /sawmill/listAllSawmill
-Update             : /sawmill/updateSawmill/id
-Delete             : /sawmill/deleteSawMill/id
+**Create Sawmill**     : /sawmill/createSawmill
 
-##### Testing the application
+**Read Specific ID**   : /sawmill/getSawmill/id
+
+**List all entries**   : /sawmill/listAllSawmill
+
+**Update**             : /sawmill/updateSawmill/id
+
+**Delete**             : /sawmill/deleteSawMill/id
+
+#### Testing the application
 
 You can use any API testing tool which is comfortable 
 
@@ -116,7 +126,7 @@ Response Payload
     "updatedAt": "2022-01-31@07:44:57"
 }
 ```
-List All
+**List All**
 
 Request: GET
 
@@ -135,7 +145,7 @@ Response Payload
     }
 ]
 ```
-Delete
+**Delete**
 
 Request: DELETE
 
