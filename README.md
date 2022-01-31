@@ -13,7 +13,7 @@ Java IDE(STS recommended for Springboot development)
 
 API Testing tool(POSTMAN)
 
-### Building from Source
+## Building from Source
 
 Download the source code and go to the project location where you find pom.xml and run the below maven command
 
@@ -21,7 +21,7 @@ Download the source code and go to the project location where you find pom.xml a
 
 This can take some time as the application will download the resouces and run unit and integration tests.
 
-#### Running the Application
+## Running the Application
 
 Once the build is success you can find the application jar in the target folder of the project location.
 
@@ -40,7 +40,7 @@ Command to run with default profile and port
 Add the symbol & at the end of the command to run the application in the backgroup
 
 
-#### End points
+## End points
 
 Application perform the Crud operation and the values are stored in the in-memory database.
 
@@ -56,7 +56,7 @@ Change the configuration as per your need in the properties file
 
 **Delete**             : /sawmill/deleteSawMill/id
 
-#### Testing the application
+## Testing the application
 
 You can use any API testing tool which is comfortable 
 
@@ -135,11 +135,20 @@ URL: localhost:8080/sawmill/listAllSawmill
 Response Payload
 ```
 [
-    {
+
+{
+        "id": 2,
+        "name": "SAWMILL 0654",
+        "city": "bangalore",
+        "country": "india",
+        "createdAt": "2022-01-31@07:37:28",
+        "updatedAt": "2022-01-31@07:44:57"
+},
+{
         "id": 1,
         "name": "SAWMILL 0655",
-        "city": "delhi",
-        "country": "germany2",
+        "city": "madrid",
+        "country": "spain",
         "createdAt": "2022-01-31@07:37:28",
         "updatedAt": "2022-01-31@07:44:57"
     }
