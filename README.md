@@ -6,8 +6,12 @@ This is a Springboot application to expose Rest API and perform CRUD operation w
 ## prerequisite
 
 Java 1.8+
+
 Maven 3.6+
+
 Java IDE(STS recommended for Springboot development)
+
+API Testing tool(POSTMAN)
 
 ### Building from Source
 
