@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import com.sawmill.service.SawmillService;
 
 @RestController
 @RequestMapping("/sawmill")
+@CrossOrigin
 public class SawmillController {
 	
 	Logger logger = LoggerFactory.getLogger(SawmillController.class);
@@ -38,6 +40,7 @@ public class SawmillController {
 	private SawmillService sawmillService;
 
 	@GetMapping("/listAllSawmill")
+	@CrossOrigin
 	public List<Sawmill> listAllSawMill() {
 		logger.trace("Endpoint : /listAllSawmill");
 		List<Sawmill> listOfSawMill = sawmillService.findAll(Sort.by(Sort.Direction.ASC, "name"));
@@ -46,6 +49,7 @@ public class SawmillController {
 	}
 
 	@GetMapping("/getSawmill/{id}")
+	@CrossOrigin
 	public Sawmill getSawMill(@PathVariable int id) throws ResourceNotFoundException {
 		logger.trace("Endpoint : /getSawmill/"+id);
 		return sawmillService.findById(id)
@@ -53,6 +57,7 @@ public class SawmillController {
 	}
 
 	@PostMapping("/createSawmill")
+	@CrossOrigin
 	public ResponseEntity<Sawmill> createSawmill(@Valid @RequestBody Sawmill sawMill) throws URISyntaxException {
 		logger.trace("Endpoint : /createSawmill");
 		
@@ -71,6 +76,7 @@ public class SawmillController {
 	}
 
 	@PutMapping("/updateSawmill/{id}")
+	@CrossOrigin
 	public ResponseEntity<Sawmill> updateSawmill(@Valid @RequestBody Sawmill sawMill,
 			@PathVariable(value = "id") int id) throws Exception {
 		logger.trace("Endpoint : /updateSawmill/"+id);
@@ -91,6 +97,7 @@ public class SawmillController {
 	}
 	
 	@DeleteMapping("/deleteSawMill/{id}")
+	@CrossOrigin
 	public ResponseEntity deleteSawmill(@PathVariable("id") int id) throws ResourceNotFoundException{
 		logger.trace("Endpoint : /deleteSawMill/"+id);
 		Sawmill existingSawMill = this.sawmillService.findById(id)
