@@ -64,6 +64,8 @@ public class SawmillControllerTest {
 		
 		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
 		String expectedSawmill = "[{\"id\":1,\"name\": \"testname\"}]";
+		MockHttpServletResponse req = mvcResult.getResponse();
+		String s = req.getContentAsString();
 		JSONAssert.assertEquals(expectedSawmill, mvcResult.getResponse().getContentAsString(), false);
 		
 		
