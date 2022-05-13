@@ -39,7 +39,7 @@ public class SawmillController {
 	@Autowired
 	private SawmillService sawmillService;
 
-	@GetMapping("/listAllSawmill")
+	@GetMapping
 	public List<Sawmill> listAllSawMill() {
 		logger.trace("Endpoint : /listAllSawmill");
 		List<Sawmill> listOfSawMill = sawmillService.findAll(Sort.by(Sort.Direction.ASC, "name"));
@@ -47,14 +47,14 @@ public class SawmillController {
 		return listOfSawMill;
 	}
 
-	@GetMapping("/getSawmill/{id}")
+	@GetMapping("/{id}")
 	public Sawmill getSawMill(@PathVariable int id) throws ResourceNotFoundException {
 		logger.trace("Endpoint : /getSawmill/"+id);
 		return sawmillService.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Sawmill does not exist with Id : " + id));
 	}
 
-	@PostMapping("/createSawmill")
+	@PostMapping()
 	public ResponseEntity<Sawmill> createSawmill(@Valid @RequestBody Sawmill sawMill) throws URISyntaxException {
 		logger.trace("Endpoint : /createSawmill");
 		
@@ -72,7 +72,7 @@ public class SawmillController {
 
 	}
 
-	@PutMapping("/updateSawmill/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Sawmill> updateSawmill(@Valid @RequestBody Sawmill sawMill,
 			@PathVariable(value = "id") int id) throws Exception {
 		logger.trace("Endpoint : /updateSawmill/"+id);
@@ -92,7 +92,7 @@ public class SawmillController {
 		}
 	}
 	
-	@DeleteMapping("/deleteSawMill/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity deleteSawmill(@PathVariable("id") int id) throws ResourceNotFoundException{
 		logger.trace("Endpoint : /deleteSawMill/"+id);
 		Sawmill existingSawMill = this.sawmillService.findById(id)

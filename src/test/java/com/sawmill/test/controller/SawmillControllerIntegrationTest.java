@@ -42,7 +42,7 @@ public class SawmillControllerIntegrationTest {
 		
 		
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/sawmill/listAllSawmill")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/sawmill")
 											.accept(MediaType.APPLICATION_JSON);
 		
 		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
@@ -55,7 +55,7 @@ public class SawmillControllerIntegrationTest {
 		
 		String newSawmill = "{\"name\": \"testname\",\"city\":\"berlin\"}";
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.put("/sawmill/updateSawmill/1")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.put("/sawmill/1")
 				.accept(MediaType.APPLICATION_JSON).content(newSawmill)
 				.contentType(MediaType.APPLICATION_JSON);
 		
@@ -73,7 +73,7 @@ public class SawmillControllerIntegrationTest {
 		
 		String newSawmill = "{\"name\": \"testname\"}";
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/sawmill/createSawmill")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/sawmill")
 				.accept(MediaType.APPLICATION_JSON).content(newSawmill)
 				.contentType(MediaType.APPLICATION_JSON);
 		
@@ -91,7 +91,7 @@ public class SawmillControllerIntegrationTest {
 		
 		
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/sawmill/deleteSawmill/1")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/sawmill/1")
 				.accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON);
 		

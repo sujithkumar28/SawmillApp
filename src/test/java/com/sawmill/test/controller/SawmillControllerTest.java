@@ -59,7 +59,7 @@ public class SawmillControllerTest {
 		when(sawmillService.findAll(Sort.by(Sort.Direction.ASC, "name"))).thenReturn(Stream.
 				of(mockSawmill).collect(Collectors.toList()));
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/sawmill/listAllSawmill")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/sawmill")
 											.accept(MediaType.APPLICATION_JSON);
 		
 		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
@@ -78,7 +78,7 @@ public class SawmillControllerTest {
 		
 		when(sawmillService.save(Mockito.any())).thenReturn(mockSawmill);
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/sawmill/createSawmill")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/sawmill")
 				.accept(MediaType.APPLICATION_JSON).content(newSawMill)
 				.contentType(MediaType.APPLICATION_JSON);
 		
@@ -101,7 +101,7 @@ public class SawmillControllerTest {
 		
 		when(sawmillService.save(Mockito.any())).thenReturn(mockSawmill);
 		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.put("/sawmill/updateSawmill/1")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.put("/sawmill/1")
 				.accept(MediaType.APPLICATION_JSON).content(newSawMill)
 				.contentType(MediaType.APPLICATION_JSON);
 		

@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(InputValidationException.class)
 	public ResponseEntity<?> handleInputValidationException(InputValidationException inputValidationException){
 		ErrorDetails errorDetails = new ErrorDetails(new Date(), inputValidationException.getMessage());
-		return new ResponseEntity(errorDetails,HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity(errorDetails,HttpStatus.BAD_REQUEST);
 		
 	}
 	
